@@ -61,9 +61,17 @@ let answers = ["Yes", "No", "Maybe", "Try again", "І так, і ні", "Нап�
 
 btn.onclick = function() {
     let q = input.value.trim();
+
     if (q.length < 3) {
         ans.innerText = "???";
         alert("Питання занадто коротке");
+        return;
+    }
+
+    // Проверка на вопросительный знак
+    if (!q.endsWith("?")) {
+        ans.innerText = "...";
+        alert("Питання має закінчуватися знаком питання '?'.");
         return;
     }
 
@@ -109,3 +117,4 @@ style.innerHTML = `
 }
 `;
 document.head.appendChild(style);
+
